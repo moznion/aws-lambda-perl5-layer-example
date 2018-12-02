@@ -12,9 +12,9 @@ Sequence
 --
 
 1. write a function to `handler.pl`
-  - this must have `handle` subroutine
+    - this must have `handle` subroutine
 2. arrange the dependency
-  - please edit `cpanfile`
+    - please edit `cpanfile`
 3. build it
 4. upload the built zip archive
 
