@@ -1,7 +1,7 @@
 Simple example of aws-lambda-perl5-layer
 ==
 
-This example provides a simple example of aws-lambda-perl5-layer for building and packing a Lambda function.
+This example provides a simple example of [aws-lambda-perl5-layer](https://github.com/moznion/aws-lambda-perl5-layer) for building and packing a Lambda function.
 
 Precondition
 --
