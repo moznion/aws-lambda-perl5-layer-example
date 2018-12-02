@@ -1,0 +1,2 @@
+requires 'YAML::XS', '0.75';
+
