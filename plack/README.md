@@ -27,6 +27,19 @@ $ make build CONTAINER_TAG=x.x
 `x.x` is the version of the perl runtime (e.g. `5.26`, `5.28`).
 You must build it with the same version to the layer's perl version.
 
+How to publish a function
+--
+
+```sh
+aws --profile "$PROFILE" --region "$REGION" lambda create-function \
+        --function-name 'plack-app' \
+        --runtime 'provided' \
+        --role "$YOUR_ROLE_ARN" \
+        --handler 'handler.handle' \
+        --layers "arn:aws:lambda:${REGION}:${AWS_ACCOUNT}:layer:perl-${PERL_VERSION}-layer:1" \
+        --zip-file 'fileb://func.zip'
+```
+
 Under the hood
 --
 
