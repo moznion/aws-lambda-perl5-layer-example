@@ -1,12 +1,23 @@
-.PHONY: build
+.PHONY: clean build
 
 ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+CONTAINER_BASE_DIR := /tmp/func
 
-build:
-ifndef PERL_VERSION
-	@echo '[ERROR] $$PERL_VERSION must be specified'
-	@echo 'make build PERL_VERSION=x.x.x'
+clean:
+	rm -rf \
+		local \
+		func.zip
+
+build: clean
+ifndef CONTAINER_TAG
+	@echo '[ERROR] $$CONTAINER_TAG must be specified'
+	@echo 'usage: make build CONTAINER_TAG=x.x'
 	exit 255
 endif
-	docker run -e PERL_VERSION=$(PERL_VERSION) -e BASE_DIR=/tmp/func --rm -v $(ROOT_DIR):/tmp/func lambci/lambda:build-nodejs8.10 /tmp/func/build.sh
+	docker run --rm \
+		-v $(ROOT_DIR):$(CONTAINER_BASE_DIR) \
+		-e TAG=$(CONTAINER_TAG) \
+		-e BASE_DIR=$(CONTAINER_BASE_DIR) \
+		moznion/lambda-perl-layer-foundation:$(CONTAINER_TAG) \
+		$(CONTAINER_BASE_DIR)/build.sh
 
