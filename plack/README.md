@@ -21,16 +21,16 @@ How to build
 --
 
 ```
-$ make PERL_VERSION=x.x.x build
+$ make build CONTAINER_TAG=x.x
 ```
 
-`x.x.x` is the version of the perl runtime (e.g. `5.28.1`).
+`x.x` is the version of the perl runtime (e.g. `5.26`, `5.28`).
 You must build it with the same version to the layer's perl version.
 
 Under the hood
 --
 
-Following processes are executed on the Docker container (Highly recommend: you should use lambci's Docker container).
+Following processes are executed on the Docker container (Highly recommend: you should use [moznion/lambda-perl-layer-foundation](https://hub.docker.com/r/moznion/lambda-perl-layer-foundation)).
 
 1. build the perl runtime with specified version
 2. vendor the dependencies by Carton

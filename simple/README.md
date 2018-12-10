@@ -51,6 +51,8 @@ aws --profile "$PROFILE" --region "$REGION" lambda create-function \
         --zip-file 'fileb://func.zip'
 ```
 
+[moznion/aws-lambda-perl5-layer](https://github.com/moznion/aws-lambda-perl5-layer) provides pre-built layers: [Using provided layers](https://github.com/moznion/aws-lambda-perl5-layer#1-using-provided-layers)
+
 Under the hood
 --
 
