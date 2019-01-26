@@ -14,7 +14,7 @@ return builder {
             return [
                 200,
                 ['Content-Type', 'application/octet-stream'],
-                [$req->body],
+                [$req->content],
             ]
         }
 
